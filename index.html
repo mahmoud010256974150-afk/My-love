@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من محمود ❤️ إلى حبيبتي - ٣ سنين انتظار</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#1E3A8A',
+                            light: '#60A5FA',
+                            rose: '#F472B6',
+                            gold: '#FBBF24',
+                            dark: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'tajawal': ['Tajawal', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+                        'typewriter': 'typewriter 4s steps(40) 1s 1 normal both',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        :root {
+            --brand-deep: #1E3A8A;
+            --brand-light: #60A5FA;
+            --brand-rose: #F472B6;
+            --brand-gold: #FBBF24;
+        }
+        
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #4C1D95 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, #F472B6, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .message-bubble {
+            position: relative;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 10px;
+            max-width: 80%;
+        }
+        
+        .message-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+        
+        .message-from-me {
+            background: linear-gradient(135deg, #1E3A8A, #60A5FA);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message-from-me::after {
+            right: -10px;
+            border-left-color: #1E3A8A;
+            border-bottom-color: #1E3A8A;
+        }
+        
+        .message-from-her {
+            background: linear-gradient(135deg, #F472B6, #FBBF24);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-from-her::after {
+            left: -10px;
+            border-right-color: #F472B6;
+            border-bottom-color: #F472B6;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #F472B6, #FBBF24, #60A5FA);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .password-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .floating-hearts span {
+            position: absolute;
+            font-size: 20px;
+            animation: float-heart 5s linear infinite;
+        }
+        
+        @keyframes float-heart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-custom text-white min-h-screen">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-50 bg-gradient-custom flex items-center justify-center">
+        <div class="text-center">
+            <div class="relative w-32 h-32 mx-auto mb-8">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-rose to-brand-gold rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <svg class="w-20 h-20 text-brand-rose animate-heartbeat" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-4xl font-bold mb-4 text-gradient">قصة حب من ٣ سنين</h1>
+            <p class="text-brand-light">من محمود ❤️ إلى حبيبتي</p>
+            <div class="mt-8 w-64 h-2 bg-white/20 rounded-full overflow-hidden mx-auto">
+                <div id="loadingBar" class="h-full bg-gradient-to-r from-brand-rose to-brand-gold w-0 transition-all duration-2000"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Screen -->
+    <div id="passwordScreen" class="fixed inset-0 z-40 bg-gradient-custom hidden flex items-center justify-center px-4">
+        <div class="max-w-md w-full">
+            <!-- Floating Hearts -->
+            <div class="floating-hearts absolute inset-0 pointer-events-none">
+                <span style="left:10%; animation-delay:0s">❤️</span>
+                <span style="left:30%; animation-delay:1s">💕</span>
+                <span style="left:50%; animation-delay:2s">💖</span>
+                <span style="left:70%; animation-delay:3s">💗</span>
+                <span style="left:90%; animation-delay:4s">💓</span>
+            </div>
+            
+            <div class="glass-effect rounded-3xl p-8 relative z-10">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-2">خاص لـ حبيبتي فقط</h2>
+                    <p class="text-brand-light">أدخلي الكلمة السرية علشان تدخلي عالمنا الخاص</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="passwordInput"
+                            class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:border-brand-rose focus:ring-2 focus:ring-brand-rose/30 outline-none transition-all text-center text-lg placeholder:text-white/40"
+                            placeholder="أدخلي الكلمة السرية هنا..."
+                            autocomplete="off"
+                        />
+                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-5 h-5 text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div id="passwordError" class="text-center text-amber-300 text-sm hidden">
+                        <svg class="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <span id="errorText">الكلمة غلط يا حبيبتي، حاولي تاني!</span>
+                    </div>
+                    
+                    <button 
+                        id="passwordButton"
+                        onclick="checkPassword()"
+                        class="w-full py-4 bg-gradient-to-r from-brand-rose to-brand-gold text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-brand-rose/30 transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                        <span class="flex items-center justify-center gap-2">
+                            أدخلي يا حياتي
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                
+                <div class="mt-6 p-4 bg-white/5 rounded-2xl border border-white/10">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-gold mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        <p class="text-sm text-white/70">
+                            <span class="font-bold text-brand-gold">تلميح:</span> 
+                            جربي: حبيبتي | حب | 123 | أو حتى دوسي على الزر من غير ما تكتبي حاجة
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-30 p-4">
+            <div class="container mx-auto">
+                <div class="glass-effect rounded-2xl px-6 py-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <span class="font-bold text-xl">
+                            <span class="text-brand-light">محمود</span>
+                            <span class="mx-2">❤️</span>
+                            <span class="text-brand-rose">حبيبتي</span>
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-sm bg-white/10 px-3 py-1 rounded-full">
+                            <span class="text-brand-gold">٣ سنين حب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen pt-24 pb-12 px-4 relative">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-rose/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto relative z-10">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Main Title -->
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full mb-6">
+                            <svg class="w-5 h-5 text-brand-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            <span class="text-sm">٣ سنين حب | أسبوع ارتباط</span>
+                        </div>
+                        
+                        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                            <span class="block text-brand-light">٣ سنين</span>
+                            <span class="block text-white my-4">بحبك من غير ما</span>
+                            <span class="block text-gradient">تكوني تعرفي</span>
+                        </h1>
+                        
+                        <p class="text-xl text-brand-light/80 max-w-2xl mx-auto leading-relaxed">
+                            وأسبوع بس من الارتباط وعارف إن ده أحلى قرار في حياتي...
+                        </p>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                        <div class="glass-effect rounded-2xl p-4 text-center">
+                            <div class="text-2xl font-bold text-brand-rose mb-1">٣</div>
+                            <p class="text-sm">سنين حب</p>
+                        </div>
+                        <div class="glass-effect rounded-2xl p-4 text-center">
+                            <div class="text-2xl font-bold text-brand-gold mb-1">١٠٩٥</div>
+                            <p class="text-sm">يوم انتظار</p>
+                        </div>
+                        <div class="glass-effect rounded-2xl p-4 text-center">
+                            <div class="text-2xl font-bold text-brand-light mb-1">١</div>
+                            <p class="text-sm">أسبوع ارتباط</p>
+                        </div>
+                        <div class="glass-effect rounded-2xl p-4 text-center">
+                            <div class="text-2xl font-bold text-gradient mb-1">∞</div>
+                            <p class="text-sm">مشاعر</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Preview -->
+                    <div class="glass-effect rounded-3xl p-6 mb-12">
+                        <h3 class="text-xl font-bold mb-4 text-center">أول أسبوع ارتباط</h3>
+                        <div class="space-y-4">
+                            <div class="message-bubble message-from-me">
+                                <p>"ومع أننا مرتبطين من أسبوع بس، حسيت إني عايش معاكي من سنين"</p>
+                            </div>
+                            <div class="message-bubble message-from-her">
+                                <p>"ده لأن قلبك كان معايا من زمان يا محمود"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-20 px-4">
+            <div class="container mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">
+                        <span class="text-brand-light">قصة حبنا</span>
+                        <span class="mx-2">❤️</span>
+                        <span class="text-brand-rose">اللي عمرها ٣ سنين</span>
+                    </h2>
+                    <p class="text-xl text-white/70 max-w-2xl mx-auto">
+                        من أول يوم شوفتك فيه لحد ما أتجرأت واتكلمت معاكي
+                    </p>
+                </div>
+                
+                <!-- Timeline -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="timeline-line"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-24">
+                            <!-- Year 1 -->
+                            <div class="relative">
+                                <div class="md:w-1/2 ml-auto md:pl-12">
+                                    <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                                                <span class="font-bold">١</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-xl font-bold">السنة الأولى</h3>
+                                                <p class="text-brand-gold">بداية المشاعر</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/80">
+                                            أول مرة شفتك فيها... كان يوم عادي في حياتي، بس من ساعتها ومش عادي خالص. كنت بشوفك وبحس بإني عارفك من زمان، بس خايف أتكلم، خايف أضايقك.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-dot bg-gradient-to-r from-brand-rose to-brand-gold"></div>
+                            </div>
+                            
+                            <!-- Year 2 -->
+                            <div class="relative">
+                                <div class="md:w-1/2 mr-auto md:pr-12">
+                                    <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-light to-blue-500 flex items-center justify-center">
+                                                <span class="font-bold">٢</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-xl font-bold">السنة الثانية</h3>
+                                                <p class="text-brand-light">حب يتعمق</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/80">
+                                            السنة دي كانت أصعب سنة... بحبك أكتر كل يوم، وبخاف أكتر كل يوم. كنت بفتكرك أول ما أصحى وآخر ما أنام، وعارف إنك حبيبتي من غير ما نكون كلمنا بعض.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-dot bg-gradient-to-r from-brand-light to-blue-500"></div>
+                            </div>
+                            
+                            <!-- Year 3 -->
+                            <div class="relative">
+                                <div class="md:w-1/2 ml-auto md:pl-12">
+                                    <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                                                <span class="font-bold">٣</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-xl font-bold">السنة الثالثة</h3>
+                                                <p class="text-purple-300">قرار التحدث</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/80">
+                                            قررت أخاطر... مش قادر أستحمل أكتر من كده. جيت اكلمك وكان قلبي بيقف، وخفت أوقع، لكن لقيتك أحلى ما تمنيت. واتكلمنا وكانت أحلى محادثات في حياتي.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-dot bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                            </div>
+                            
+                            <!-- The Week -->
+                            <div class="relative">
+                                <div class="md:w-1/2 mr-auto md:pr-12">
+                                    <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300 border-2 border-brand-rose/30">
+                                        <div class="flex items-center gap-4 mb-4">
+                                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-rose to-pink-600 flex items-center justify-center animate-pulse">
+                                                <span class="font-bold">أ</span>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-xl font-bold">الأسبوع اللي فات</h3>
+                                                <p class="text-brand-rose">بداية عمر جديد</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-white/80">
+                                            بعد ٣ سنين حب، لقيت الشجاعة أقولك إني بحبك، وأسألك تبقى حبيبتي. وأجمل لحظة في حياتي لما وافقتِ... أسبوع بس وبحسه أجمل من الـ ٣ سنين كلها!
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-dot bg-gradient-to-r from-brand-rose to-pink-600 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Letter -->
+        <section class="py-20 px-4 bg-gradient-to-b from-transparent to-white/5">
+            <div class="container mx-auto">
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-effect rounded-3xl p-8 md:p-12">
+                        <div class="text-center mb-12">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold mb-4">رسالة من القلب</h2>
+                            <p class="text-brand-light">إلى حبيبتي الغالية...</p>
+                        </div>
+                        
+                        <div class="space-y-6 text-lg leading-relaxed">
+                            <p class="animate-fade-in">
+                                يا أحلى إنسانة في حياتي،
+                            </p>
+                            <p class="animate-fade-in">
+                                ٣ سنين كاملة وأنا بحبك من بعيد، بس حبك كان أقوى من أي حاجة. كل يوم كنت بشوفك وبحس إني عايز أتكلم، عايز أقولك قد إيه بحبك، بس كنت خايف أخسر حتى فرصة أشوفك.
+                            </p>
+                            <p class="animate-fade-in">
+                                كنت بتكلم مع نفسي وأقول "لو عارفها أكتر، هتكون أكتر حاجة جميلة في حياتي"... وصدقت حدسي. من أول ما اكلمتك، عرفت إنك أكتر من ما تمنيت، أكتر من ما حلمت.
+                            </p>
+                            <p class="animate-fade-in">
+                                أسبوع بس من ارتباطنا وأحس إني عايش أحلى أيام حياتي. كل كلمة بتقوليها، كل ضحكة بتضحكيها، كل نظرة بتديها لي... كلها بتخليني أكتر واحد محظوظ في الدنيا.
+                            </p>
+                            <p class="animate-fade-in font-bold text-brand-rose text-xl mt-8">
+                                مش عارف أعبر قد إيه بحبك، بس كل اللي أعرفه إن ٣ سنين مكافحة كانت تستاهل علشان توصل لحظة إني أقولك: "بحبك يا حبيبتي".
+                            </p>
+                            <p class="text-right mt-12 text-brand-light">
+                                كل حب قلبي،<br>
+                                محمود ❤️
+                            </p>
+                        </div>
+                        
+                        <div class="mt-12 flex justify-center">
+                            <button onclick="createHearts()" class="px-8 py-3 bg-gradient-to-r from-brand-rose to-brand-gold text-white font-bold rounded-full hover:shadow-2xl transition-all">
+                                ♥ أضغطي هنا لو عاجباك الرسالة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Chat -->
+        <section class="py-20 px-4">
+            <div class="container mx-auto">
+                <div class="max-w-2xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold mb-4">أول محادثة لنا</h2>
+                        <p class="text-white/70">اللي غيرت حياتي بالكامل</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-3xl p-6">
+                        <div class="space-y-6">
+                            <!-- Chat Messages -->
+                            <div class="message-bubble message-from-me">
+                                <div class="text-sm text-white/60 mb-1">محمود - ٣ أسابيع</div>
+                                <p>"في الحقيقة.. أنا عارفك من ٣ سنين"</p>
+                            </div>
+                            
+                            <div class="message-bubble message-from-her">
+                                <div class="text-sm text-white/60 mb-1">حبيبتي</div>
+                                <p>"ايه؟! يعني إزاي؟"</p>
+                            </div>
+                            
+                            <div class="message-bubble message-from-me">
+                                <div class="text-sm text-white/60 mb-1">محمود</div>
+                                <p>"كنت بشوفك كل يوم، وبحس بإني عارفك من زمان. كنت خايف أتكلم"</p>
+                            </div>
+                            
+                            <div class="message-bubble message-from-her">
+                                <div class="text-sm text-white/60 mb-1">حبيبتي</div>
+                                <p>"وانت جاي تتكلم دلوقت ليه؟"</p>
+                            </div>
+                            
+                            <div class="message-bubble message-from-me">
+                                <div class="text-sm text-white/60 mb-1">محمود</div>
+                                <p>"عشان مش قادر أستحمل أكتر من كده.. ٣ سنين وأنا بحبك من بعيد"</p>
+                            </div>
+                            
+                            <div class="message-bubble message-from-her">
+                                <div class="text-sm text-white/60 mb-1">حبيبتي</div>
+                                <p>"❤️"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promises -->
+        <section class="py-20 px-4 bg-gradient-to-t from-transparent to-white/5">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold mb-4">وعودي ليكي</h2>
+                        <p class="text-xl text-white/70">عشان تكوني متأكدة قد إيه بحبك</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-rose/20 to-brand-rose/40 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 text-brand-rose" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">حمايتك</h3>
+                            <p class="text-white/80">هخليكي دايماً تحسي بالأمان، هكون سندك في أي وقت وأي مكان</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-gold/20 to-brand-gold/40 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 text-brand-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">تفهمك</h3>
+                            <p class="text-white/80">هسمعك من غير ما تتكلمي، وهفهمك حتى لو متعرفيش تعبري</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-light/20 to-brand-light/40 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 text-brand-light" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">كتابة حكايتنا</h3>
+                            <p class="text-white/80">كل يوم هكتب في قصة حبنا فصل جديد من السعادة</p>
+                        </div>
+                        
+                        <div class="glass-effect rounded-3xl p-6 hover:scale-[1.02] transition-all duration-300">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-purple-500/20 to-purple-500/40 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">تقديرك</h3>
+                            <p class="text-white/80">هخليكي تحسي كل يوم إنك أغلى ما عندي في الدنيا</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-white/10">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <!-- Love Animation -->
+                    <div class="flex justify-center mb-8">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-brand-rose to-brand-gold rounded-full blur-xl opacity-30 animate-pulse"></div>
+                            <div class="relative w-20 h-20 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full bg-brand-dark flex items-center justify-center">
+                                    <span class="text-2xl font-bold text-white">❤️</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-3xl font-bold mb-4">
+                        <span class="text-brand-light">٣ سنين</span>
+                        <span class="mx-2">❤️</span>
+                        <span class="text-brand-rose">وانتظار</span>
+                        <span class="mx-2">❤️</span>
+                        <span class="text-brand-gold">وحب</span>
+                    </h3>
+                    
+                    <p class="text-xl text-white/80 max-w-2xl mx-auto mb-8">
+                        كل دا علشانك يا حبيبتي... علشان أوصل لليوم اللي أقولك فيه بحبك
+                    </p>
+                    
+                    <!-- Interactive Elements -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button onclick="createHearts()" class="px-6 py-3 bg-gradient-to-r from-brand-rose to-pink-600 rounded-full font-bold hover:shadow-2xl hover:shadow-brand-rose/30 transition-all">
+                            ♥ بعتلك قلوب
+                        </button>
+                        <button onclick="createConfetti()" class="px-6 py-3 glass-effect border border-white/20 rounded-full font-bold hover:bg-white/10 transition-all">
+                            🎉 احتفال حبنا
+                        </button>
+                        <button onclick="window.location.reload()" class="px-6 py-3 bg-gradient-to-r from-brand-light to-blue-600 rounded-full font-bold hover:shadow-2xl hover:shadow-brand-light/30 transition-all">
+                            🔄 شوفي الموقع تاني
+                        </button>
+                    </div>
+                    
+                    <p class="text-sm text-white/50">
+                        صنع بكل الحب من محمود ❤️ إلى حبيبتي الغالية - 2024
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toasts -->
+    <div id="toastContainer" class="fixed bottom-4 right-4 z-50 space-y-2"></div>
+
+    <script>
+        // Initialize icons
+        lucide.createIcons();
+        
+        // Show loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('loadingBar').style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                    document.getElementById('passwordScreen').classList.remove('hidden');
+                    gsap.from('#passwordScreen', {
+                        opacity: 0,
+                        scale: 0.9,
+                        duration: 1,
+                        ease: "power3.out"
+                    });
+                    
+                    // Focus on password input
+                    document.getElementById('passwordInput').focus();
+                }, 500);
+            }, 1000);
+            
+            // Initialize animations
+            gsap.registerPlugin(ScrollTrigger);
+            initAnimations();
+        });
+        
+        // Multiple password options
+        const passwordOptions = [
+            "حبيبتي",
+            "حب",
+            "123",
+            "قلبي",
+            "روحي",
+            "محمود",
+            "يارب"
+        ];
+        
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const error = document.getElementById('passwordError');
+            const errorText = document.getElementById('errorText');
+            const button = document.getElementById('passwordButton');
+            
+            const userInput = input.value.trim();
+            
+            // Accept empty input too
+            if (userInput === "" || passwordOptions.includes(userInput)) {
+                // Success
+                createConfetti();
+                showToast('🎉 أهلاً وسهلاً بحبيبتي في عالمنا الخاص!', 'success');
+                
+                // Hide password screen and show main content
+                gsap.to('#passwordScreen', {
+                    opacity: 0,
+                    scale: 0.9,
+                    duration: 0.5,
+                    onComplete: () => {
+                        document.getElementById('passwordScreen').style.display = 'none';
+                        document.getElementById('mainContent').classList.remove('hidden');
+                        gsap.from('#mainContent', {
+                            opacity: 0,
+                            y: 50,
+                            duration: 1,
+                            ease: "power3.out"
+                        });
+                        
+                        // Animate elements
+                        animateContent();
+                    }
+                });
+            } else {
+                // Error
+                error.classList.remove('hidden');
+                input.classList.add('password-shake');
+                
+                // Random hint message
+                const messages = [
+                    "جربي: حبيبتي، حب، 123، أو حتى دوسي على الزر من غير ما تكتبي",
+                    "ممكن تكتبي: حب، أو 123، أو حبيبتي",
+                    "الكلمة سهلة: حب أو 123 أو حبيبتي",
+                    "ما تخافيش! جربي: حب، 123، أو حبيبتي"
+                ];
+                
+                errorText.textContent = messages[Math.floor(Math.random() * messages.length)];
+                
+                // Animate button
+                gsap.to(button, {
+                    scale: 1.1,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 1
+                });
+                
+                // Reset shake animation
+                setTimeout(() => {
+                    input.classList.remove('password-shake');
+                }, 500);
+                
+                input.value = '';
+                input.focus();
+            }
+        }
+        
+        // Allow Enter key
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+        
+        // Also allow clicking without typing
+        document.getElementById('passwordButton').addEventListener('click', checkPassword);
+        
+        // Create hearts animation
+        function createHearts(count = 30) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.zIndex = '9999';
+                    heart.style.fontSize = `${Math.random() * 24 + 16}px`;
+                    heart.style.color = Math.random() > 0.5 ? '#F472B6' : '#FBBF24';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.top = '100vh';
+                    heart.style.opacity = '1';
+                    heart.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Animate heart
+                    gsap.to(heart, {
+                        y: -window.innerHeight - 100,
+                        rotation: Math.random() * 360,
+                        duration: Math.random() * 3 + 2,
+                        ease: "power1.out",
+                        onComplete: () => heart.remove()
+                    });
+                }, i * 100);
+            }
+            showToast('♥ قلوب حب عبيت الدنيا!', 'love');
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#F472B6', '#FBBF24', '#60A5FA', '#FFFFFF']
+            });
+            showToast('🎉 ياهووو! احتفال حبنا!', 'success');
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `glass-effect rounded-2xl p-4 max-w-sm ${type === 'success' ? 'border-r-4 border-brand-rose' : 'border-r-4 border-brand-gold'}`;
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(20px)';
+            toast.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full ${type === 'success' ? 'bg-brand-rose/20' : 'bg-brand-gold/20'} flex items-center justify-center">
+                        ${type === 'success' ? '🎉' : '♥'}
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium">${message}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            // Animate in
+            gsap.to(toast, {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+            
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                gsap.to(toast, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.3,
+                    onComplete: () => toast.remove()
+                });
+            }, 3000);
+        }
+        
+        // Initialize animations
+        function initAnimations() {
+            // Animate elements on scroll
+            gsap.utils.toArray('.glass-effect').forEach(element => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            });
+            
+            // Animate timeline dots
+            gsap.utils.toArray('.timeline-dot').forEach(dot => {
+                gsap.from(dot, {
+                    scrollTrigger: {
+                        trigger: dot,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    },
+                    scale: 0,
+                    duration: 0.5,
+                    ease: "back.out(1.7)"
+                });
+            });
+        }
+        
+        // Animate content on load
+        function animateContent() {
+            // Animate hero title
+            gsap.from('h1 span', {
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 1,
+                ease: "power3.out"
+            });
+            
+            // Animate stats
+            gsap.from('.glass-effect', {
+                y: 30,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.8,
+                delay: 0.5,
+                ease: "power3.out"
+            });
+            
+            // Animate chat preview
+            gsap.from('.message-bubble', {
+                x: 50,
+                opacity: 0,
+                stagger: 0.3,
+                duration: 0.8,
+                delay: 1,
+                ease: "power3.out"
+            });
+            
+            // Animate love letter
+            setTimeout(() => {
+                gsap.utils.toArray('.animate-fade-in').forEach((element, index) => {
+                    gsap.from(element, {
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        },
+                        opacity: 0,
+                        y: 30,
+                        duration: 1,
+                        delay: index * 0.3,
+                        ease: "power3.out"
+                    });
+                });
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>من محمود ❤️ إلى حبيبتي - ٣ سنين انتظار</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#1E3A8A',
+                            light: '#60A5FA',
+                            rose: '#F472B6',
+                            gold: '#FBBF24',
+                            dark: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'tajawal': ['Tajawal', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Touch-friendly styles -->
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        
+        /* Allow selection for inputs */
+        input, textarea {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        
+        :root {
+            --brand-deep: #1E3A8A;
+            --brand-light: #60A5FA;
+            --brand-rose: #F472B6;
+            --brand-gold: #FBBF24;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 50%, #4C1D95 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, #F472B6, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .message-bubble {
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin: 8px;
+            max-width: 85%;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .message-from-me {
+            background: linear-gradient(135deg, #1E3A8A, #60A5FA);
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message-from-her {
+            background: linear-gradient(135deg, #F472B6, #FBBF24);
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            h2 {
+                font-size: 1.8rem !important;
+            }
+            
+            p {
+                font-size: 16px !important;
+                line-height: 1.6 !important;
+            }
+            
+            .glass-effect {
+                padding: 20px !important;
+            }
+            
+            button {
+                padding: 14px 24px !important;
+                font-size: 16px !important;
+                min-height: 48px;
+            }
+            
+            input {
+                font-size: 18px !important;
+                padding: 16px !important;
+                height: 56px;
+            }
+        }
+        
+        /* Fix for mobile scrolling */
+        .mobile-scroll-fix {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+        }
+        
+        /* Larger touch targets */
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hide scrollbar but allow scrolling */
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Loading screen fix */
+        #loadingScreen, #passwordScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        
+        /* Password input mobile fix */
+        #passwordInput {
+            font-size: 18px;
+            height: 56px;
+            border-radius: 16px;
+        }
+        
+        /* Ensure content fits mobile */
+        .mobile-container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        
+        /* Fix for 3D transforms on mobile */
+        .no-transform-mobile {
+            transform: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .no-transform-mobile {
+                transform: none !important;
+            }
+            
+            .hover\:scale-\[1\.02\]:hover {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-white overflow-x-hidden">
+    
+    <!-- Loading Screen - Mobile Optimized -->
+    <div id="loadingScreen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+        <div class="text-center w-full max-w-md">
+            <div class="relative w-24 h-24 mx-auto mb-6">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-rose to-brand-gold rounded-full blur-xl opacity-30"></div>
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <div class="text-5xl text-brand-rose animate-pulse">❤️</div>
+                </div>
+            </div>
+            <h1 class="text-3xl font-bold mb-3 text-gradient">قصة حب من ٣ سنين</h1>
+            <p class="text-brand-light mb-6">من محمود ❤️ إلى حبيبتي</p>
+            <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                <div id="loadingBar" class="h-full bg-gradient-to-r from-brand-rose to-brand-gold w-0 transition-all duration-1000"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Screen - Mobile Optimized -->
+    <div id="passwordScreen" class="fixed inset-0 z-40 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 hidden items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="glass-effect rounded-3xl p-6">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center mx-auto mb-4">
+                        <div class="text-2xl text-white">❤️</div>
+                    </div>
+                    <h2 class="text-xl font-bold mb-2">خاص لـ حبيبتي فقط</h2>
+                    <p class="text-brand-light text-sm">أدخلي الكلمة السرية علشان تدخلي عالمنا الخاص</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="passwordInput"
+                            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:border-brand-rose focus:outline-none text-center text-lg placeholder:text-white/40"
+                            placeholder="أدخلي الكلمة السرية..."
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        />
+                    </div>
+                    
+                    <div id="passwordError" class="text-center text-amber-300 text-sm hidden">
+                        <div class="flex items-center justify-center gap-1">
+                            <span>⚠️</span>
+                            <span id="errorText">الكلمة غلط يا حبيبتي، حاولي تاني!</span>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="passwordButton"
+                        onclick="checkPassword()"
+                        class="w-full py-3 bg-gradient-to-r from-brand-rose to-brand-gold text-white font-bold rounded-xl active:scale-95 transition-transform touch-target"
+                    >
+                        <span class="flex items-center justify-center gap-2">
+                            أدخلي يا حياتي
+                            <span>→</span>
+                        </span>
+                    </button>
+                    
+                    <div class="text-center mt-4">
+                        <button onclick="skipPassword()" class="text-sm text-white/60 underline">
+                            أو اضغطي هنا من غير كلمة سر
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-3 bg-white/5 rounded-xl border border-white/10">
+                    <div class="flex items-start gap-2">
+                        <span class="text-brand-gold">💡</span>
+                        <p class="text-xs text-white/70 flex-1">
+                            <span class="font-bold text-brand-gold">تلميح:</span> 
+                            جربي: حبيبتي، حب، 123، أو اضغطي "أدخلي يا حياتي" من غير ما تكتبي
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile instructions -->
+            <div class="mt-4 text-center text-white/40 text-xs">
+                <p>الموقع شغال تمام على الموبايل! 📱</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content - Mobile Optimized -->
+    <div id="mainContent" class="hidden">
+        <!-- Simple Navigation for Mobile -->
+        <div class="fixed top-0 left-0 right-0 z-30 p-4 glass-effect">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                        <span class="text-white text-sm">❤️</span>
+                    </div>
+                    <span class="font-bold">
+                        <span class="text-brand-light">محمود</span>
+                        <span class="mx-1">❤️</span>
+                        <span class="text-brand-rose">حبيبتي</span>
+                    </span>
+                </div>
+                <div class="text-xs bg-white/10 px-2 py-1 rounded-full">
+                    <span class="text-brand-gold">٣ سنين</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen pt-20 pb-10 px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center gap-1 px-3 py-1 glass-effect rounded-full mb-4">
+                        <span class="text-brand-gold">⭐</span>
+                        <span class="text-sm">٣ سنين حب | أسبوع ارتباط</span>
+                    </div>
+                    
+                    <h1 class="text-4xl font-bold leading-tight mb-4">
+                        <span class="block text-brand-light">٣ سنين</span>
+                        <span class="block text-white my-2">بحبك من غير ما</span>
+                        <span class="block text-gradient">تكوني تعرفي</span>
+                    </h1>
+                    
+                    <p class="text-lg text-brand-light/80 leading-relaxed mb-6">
+                        وأسبوع بس من الارتباط وعارف إن ده أحلى قرار في حياتي...
+                    </p>
+                </div>
+                
+                <!-- Stats for Mobile -->
+                <div class="grid grid-cols-2 gap-3 mb-8">
+                    <div class="glass-effect rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-brand-rose mb-1">٣</div>
+                        <p class="text-xs">سنين حب</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-brand-gold mb-1">١٠٩٥</div>
+                        <p class="text-xs">يوم انتظار</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-brand-light mb-1">١</div>
+                        <p class="text-xs">أسبوع ارتباط</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-4 text-center">
+                        <div class="text-2xl font-bold text-gradient mb-1">∞</div>
+                        <p class="text-xs">مشاعر</p>
+                    </div>
+                </div>
+                
+                <!-- Chat Preview -->
+                <div class="glass-effect rounded-2xl p-4 mb-8">
+                    <h3 class="text-lg font-bold mb-3 text-center">أول أسبوع ارتباط</h3>
+                    <div class="space-y-3">
+                        <div class="message-bubble message-from-me">
+                            <p>"ومع أننا مرتبطين من أسبوع بس، حسيت إني عايش معاكي من سنين"</p>
+                        </div>
+                        <div class="message-bubble message-from-her">
+                            <p>"ده لأن قلبك كان معايا من زمان يا محمود"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col gap-3">
+                    <button onclick="scrollToSection('loveLetter')" class="w-full py-3 bg-gradient-to-r from-brand-rose to-pink-600 text-white font-bold rounded-xl active:scale-95 transition-transform touch-target">
+                        اقرئي رسالتي
+                    </button>
+                    <button onclick="createHearts()" class="w-full py-3 glass-effect border border-white/20 text-white font-bold rounded-xl active:scale-95 transition-transform touch-target">
+                        ♥ بعتلك قلوب
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Letter -->
+        <section id="loveLetter" class="py-16 px-4 bg-gradient-to-b from-transparent to-white/5">
+            <div class="max-w-2xl mx-auto">
+                <div class="glass-effect rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white text-xl">💌</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">رسالة من القلب</h2>
+                        <p class="text-brand-light">إلى حبيبتي الغالية...</p>
+                    </div>
+                    
+                    <div class="space-y-4 text-base leading-relaxed">
+                        <p>يا أحلى إنسانة في حياتي،</p>
+                        <p>٣ سنين كاملة وأنا بحبك من بعيد، بس حبك كان أقوى من أي حاجة. كل يوم كنت بشوفك وبحس إني عايز أتكلم، عايز أقولك قد إيه بحبك، بس كنت خايف أخسر حتى فرصة أشوفك.</p>
+                        <p>كنت بتكلم مع نفسي وأقول "لو عارفها أكتر، هتكون أكتر حاجة جميلة في حياتي"... وصدقت حدسي. من أول ما اكلمتك، عرفت إنك أكتر من ما تمنيت، أكتر من ما حلمت.</p>
+                        <p>أسبوع بس من ارتباطنا وأحس إني عايش أحلى أيام حياتي. كل كلمة بتقوليها، كل ضحكة بتضحكيها، كل نظرة بتديها لي... كلها بتخليني أكتر واحد محظوظ في الدنيا.</p>
+                        <p class="font-bold text-brand-rose text-lg mt-6">
+                            مش عارف أعبر قد إيه بحبك، بس كل اللي أعرفه إن ٣ سنين مكافحة كانت تستاهل علشان توصل لحظة إني أقولك: "بحبك يا حبيبتي".
+                        </p>
+                        <p class="text-right mt-8 text-brand-light">
+                            كل حب قلبي،<br>
+                            محمود ❤️
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-center">
+                        <button onclick="createHearts()" class="px-6 py-2 bg-gradient-to-r from-brand-rose to-brand-gold text-white font-bold rounded-full active:scale-95 transition-transform touch-target">
+                            ♥ أضغطي هنا
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="py-16 px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-3">قصة حبنا</h2>
+                    <p class="text-white/70">اللي عمرها ٣ سنين</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Year 1 -->
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                                <span class="font-bold">١</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">السنة الأولى</h3>
+                                <p class="text-brand-gold text-sm">بداية المشاعر</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            أول مرة شفتك فيها... كان يوم عادي في حياتي، بس من ساعتها ومش عادي خالص. كنت بشوفك وبحس بإني عارفك من زمان، بس خايف أتكلم، خايف أضايقك.
+                        </p>
+                    </div>
+                    
+                    <!-- Year 2 -->
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-brand-light to-blue-500 flex items-center justify-center">
+                                <span class="font-bold">٢</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">السنة الثانية</h3>
+                                <p class="text-brand-light text-sm">حب يتعمق</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            السنة دي كانت أصعب سنة... بحبك أكتر كل يوم، وبخاف أكتر كل يوم. كنت بفتكرك أول ما أصحى وآخر ما أنام، وعارف إنك حبيبتي من غير ما نكون كلمنا بعض.
+                        </p>
+                    </div>
+                    
+                    <!-- Year 3 -->
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                                <span class="font-bold">٣</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">السنة الثالثة</h3>
+                                <p class="text-purple-300 text-sm">قرار التحدث</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            قررت أخاطر... مش قادر أستحمل أكتر من كده. جيت اكلمك وكان قلبي بيقف، وخفت أوقع، لكن لقيتك أحلى ما تمنيت. واتكلمنا وكانت أحلى محادثات في حياتي.
+                        </p>
+                    </div>
+                    
+                    <!-- The Week -->
+                    <div class="glass-effect rounded-2xl p-5 border-2 border-brand-rose/30">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-brand-rose to-pink-600 flex items-center justify-center animate-pulse">
+                                <span class="font-bold">أ</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">الأسبوع اللي فات</h3>
+                                <p class="text-brand-rose text-sm">بداية عمر جديد</p>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            بعد ٣ سنين حب، لقيت الشجاعة أقولك إني بحبك، وأسألك تبقى حبيبتي. وأجمل لحظة في حياتي لما وافقتِ... أسبوع بس وبحسه أجمل من الـ ٣ سنين كلها!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Chat -->
+        <section class="py-16 px-4">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-3">أول محادثة لنا</h2>
+                    <p class="text-white/70">اللي غيرت حياتي بالكامل</p>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-5">
+                    <div class="space-y-4">
+                        <div class="message-bubble message-from-me">
+                            <div class="text-xs text-white/60 mb-1">محمود - ٣ أسابيع</div>
+                            <p>"في الحقيقة.. أنا عارفك من ٣ سنين"</p>
+                        </div>
+                        
+                        <div class="message-bubble message-from-her">
+                            <div class="text-xs text-white/60 mb-1">حبيبتي</div>
+                            <p>"ايه؟! يعني إزاي؟"</p>
+                        </div>
+                        
+                        <div class="message-bubble message-from-me">
+                            <div class="text-xs text-white/60 mb-1">محمود</div>
+                            <p>"كنت بشوفك كل يوم، وبحس بإني عارفك من زمان. كنت خايف أتكلم"</p>
+                        </div>
+                        
+                        <div class="message-bubble message-from-her">
+                            <div class="text-xs text-white/60 mb-1">حبيبتي</div>
+                            <p>"وانت جاي تتكلم دلوقت ليه؟"</p>
+                        </div>
+                        
+                        <div class="message-bubble message-from-me">
+                            <div class="text-xs text-white/60 mb-1">محمود</div>
+                            <p>"عشان مش قادر أستحمل أكتر من كده.. ٣ سنين وأنا بحبك من بعيد"</p>
+                        </div>
+                        
+                        <div class="message-bubble message-from-her">
+                            <div class="text-xs text-white/60 mb-1">حبيبتي</div>
+                            <p>"❤️"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promises -->
+        <section class="py-16 px-4 bg-gradient-to-t from-transparent to-white/5">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold mb-3">وعودي ليكي</h2>
+                    <p class="text-white/70">عشان تكوني متأكدة قد إيه بحبك</p>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-rose/20 to-brand-rose/40 flex items-center justify-center">
+                                <span class="text-brand-rose text-lg">🛡️</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">حمايتك</h3>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            هخليكي دايماً تحسي بالأمان، هكون سندك في أي وقت وأي مكان
+                        </p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-gold/20 to-brand-gold/40 flex items-center justify-center">
+                                <span class="text-brand-gold text-lg">💭</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">تفهمك</h3>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            هسمعك من غير ما تتكلمي، وهفهمك حتى لو متعرفيش تعبري
+                        </p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-light/20 to-brand-light/40 flex items-center justify-center">
+                                <span class="text-brand-light text-lg">📖</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">كتابة حكايتنا</h3>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            كل يوم هكتب في قصة حبنا فصل جديد من السعادة
+                        </p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500/20 to-purple-500/40 flex items-center justify-center">
+                                <span class="text-purple-500 text-lg">⭐</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold">تقديرك</h3>
+                            </div>
+                        </div>
+                        <p class="text-white/80 text-sm">
+                            هخليكي تحسي كل يوم إنك أغلى ما عندي في الدنيا
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-4 border-t border-white/10">
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-rose to-brand-gold rounded-full blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative w-16 h-16 rounded-full bg-gradient-to-r from-brand-rose to-brand-gold flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
+                                <span class="text-xl">❤️</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-4">
+                    <span class="text-brand-light">٣ سنين</span>
+                    <span class="mx-1">❤️</span>
+                    <span class="text-brand-rose">وانتظار</span>
+                    <span class="mx-1">❤️</span>
+                    <span class="text-brand-gold">وحب</span>
+                </h3>
+                
+                <p class="text-lg text-white/80 mb-6">
+                    كل دا علشانك يا حبيبتي... علشان أوصل لليوم اللي أقولك فيه بحبك
+                </p>
+                
+                <!-- Interactive Elements -->
+                <div class="flex flex-col gap-3 mb-6">
+                    <button onclick="createHearts()" class="w-full py-3 bg-gradient-to-r from-brand-rose to-pink-600 rounded-xl font-bold active:scale-95 transition-transform touch-target">
+                        ♥ بعتلك قلوب
+                    </button>
+                    <button onclick="createConfetti()" class="w-full py-3 glass-effect border border-white/20 rounded-xl font-bold active:scale-95 transition-transform touch-target">
+                        🎉 احتفال حبنا
+                    </button>
+                </div>
+                
+                <p class="text-sm text-white/50">
+                    صنع بكل الحب من محمود ❤️ إلى حبيبتي الغالية
+                </p>
+                
+                <div class="mt-4">
+                    <button onclick="resetSite()" class="text-xs text-white/30 underline">
+                        إعادة تحميل الموقع
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Simple Toast -->
+    <div id="simpleToast" class="fixed bottom-4 left-4 right-4 z-50 hidden">
+        <div class="glass-effect rounded-xl p-4 text-center">
+            <p id="toastMessage" class="text-sm"></p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix for mobile viewport
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+            
+            // Show loading animation
+            setTimeout(() => {
+                const loadingBar = document.getElementById('loadingBar');
+                if (loadingBar) {
+                    loadingBar.style.width = '100%';
+                    setTimeout(() => {
+                        document.getElementById('loadingScreen').style.display = 'none';
+                        document.getElementById('passwordScreen').classList.remove('hidden');
+                        
+                        // Focus on password input with delay for mobile
+                        setTimeout(() => {
+                            const input = document.getElementById('passwordInput');
+                            if (input) {
+                                input.focus();
+                                // For iOS
+                                input.setAttribute('autofocus', 'autofocus');
+                            }
+                        }, 300);
+                    }, 800);
+                }
+            }, 500);
+            
+            // Prevent zoom on mobile
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(e) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        });
+        
+        // Password system - SUPER SIMPLE
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const error = document.getElementById('passwordError');
+            
+            // Accept ANY input (including empty)
+            const userInput = input ? input.value.trim() : '';
+            
+            // Always successful!
+            showToast('🎉 أهلاً وسهلاً بحبيبتي في عالمنا الخاص!');
+            
+            // Hide password screen and show main content
+            setTimeout(() => {
+                if (document.getElementById('passwordScreen')) {
+                    document.getElementById('passwordScreen').style.display = 'none';
+                }
+                if (document.getElementById('mainContent')) {
+                    document.getElementById('mainContent').classList.remove('hidden');
+                }
+                
+                // Scroll to top for mobile
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Create hearts celebration
+                createHearts();
+            }, 500);
+        }
+        
+        // Skip password entirely
+        function skipPassword() {
+            showToast('❤️ أهلاً يا حبيبتي! دخلتي عالمنا الخاص');
+            
+            setTimeout(() => {
+                if (document.getElementById('passwordScreen')) {
+                    document.getElementById('passwordScreen').style.display = 'none';
+                }
+                if (document.getElementById('mainContent')) {
+                    document.getElementById('mainContent').classList.remove('hidden');
+                }
+                
+                createHearts();
+            }, 300);
+        }
+        
+        // Allow Enter key
+        if (document.getElementById('passwordInput')) {
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+        }
+        
+        // Create hearts animation - SIMPLE VERSION
+        function createHearts(count = 15) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.zIndex = '9998';
+                    heart.style.fontSize = `${Math.random() * 20 + 20}px`;
+                    heart.style.color = Math.random() > 0.5 ? '#F472B6' : '#FBBF24';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.top = '100vh';
+                    heart.style.opacity = '1';
+                    heart.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Simple animation
+                    const duration = Math.random() * 2 + 2;
+                    heart.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: duration * 1000,
+                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                    });
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (heart.parentNode) {
+                            heart.parentNode.removeChild(heart);
+                        }
+                    }, duration * 1000);
+                }, i * 100);
+            }
+            showToast('♥ قلوب حب راحتلك!');
+        }
+        
+        // Create confetti - SIMPLE VERSION
+        function createConfetti() {
+            try {
+                // Simple confetti using emojis
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.innerHTML = ['🎉', '🎊', '❤️', '💕', '💖'][Math.floor(Math.random() * 5)];
+                        confetti.style.position = 'fixed';
+                        confetti.style.zIndex = '9997';
+                        confetti.style.fontSize = '24px';
+                        confetti.style.left = `${Math.random() * 100}vw`;
+                        confetti.style.top = '0';
+                        confetti.style.opacity = '1';
+                        confetti.style.pointerEvents = 'none';
+                        
+                        document.body.appendChild(confetti);
+                        
+                        // Animate
+                        confetti.animate([
+                            { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                            { transform: `translateY(100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                        ], {
+                            duration: 2000,
+                            easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                        });
+                        
+                        setTimeout(() => {
+                            if (confetti.parentNode) {
+                                confetti.parentNode.removeChild(confetti);
+                            }
+                        }, 2000);
+                    }, i * 50);
+                }
+                showToast('🎉 ياهووو! احتفال حبنا!');
+            } catch (e) {
+                showToast('❤️ احتفال حبنا!');
+            }
+        }
+        
+        // Show toast notification - SIMPLE
+        function showToast(message) {
+            const toast = document.getElementById('simpleToast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            if (toast && toastMessage) {
+                toastMessage.textContent = message;
+                toast.classList.remove('hidden');
+                
+                // Simple animation
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                    toast.style.transition = 'all 0.3s ease';
+                }, 10);
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                    }, 300);
+                }, 3000);
+            }
+        }
+        
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Reset site
+        function resetSite() {
+            if (confirm('عايزة ترجعي لشاشة البداية؟')) {
+                document.getElementById('mainContent').classList.add('hidden');
+                document.getElementById('passwordScreen').style.display = 'flex';
+                document.getElementById('passwordInput').value = '';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        // Handle mobile back button
+        window.addEventListener('popstate', function() {
+            // Do nothing or handle back button
+        });
+        
+        // Prevent context menu on mobile
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // Fix for iOS Safari 100vh issue
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        setVH();
+    </script>
+</body>
+</html>
